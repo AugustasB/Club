@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	
+  	
+  <nav th:fragment="menu" class="navbar navbar-expand-lg navbar-light bg-light">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" href="#">club</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+	        <li class="nav-item">
+	          <a class="nav-link " aria-current="page" href="/">Club members</a>
+	        </li>
+	         <li class="nav-item" sec:authorize="hasRole('ROLE_admin')" >
+	          <a class="nav-link " aria-current="page" href="/newClient">Add new client</a>
+	        </li>
+	        
+	      </ul>
+	      <div class="float-end">
+	      	<a href="/logout" class="btn btn-primary">Logout</a>
+	      </div>
+	      
+	    </div>
+	  </div>
+</nav>
+
+
+ <div th:fragment="userInfo">
+ 	<div class="alert alert-info mt-5" sec:authorize="isAuthenticated()">
+	 	You are logged in as: <span class="font-weight-bold" sec:authentication="name"></span>,
+	 	You have these rights: <span class="font-weight-bold" sec:authentication="principal.authorities"></span>
+ 	</div>
+ </div>
+
+</body>
+</html>
