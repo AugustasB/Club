@@ -10,7 +10,7 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 
 @Documented
-@Contraint(validatedBy = PhoneNumberValidator.class)
+@Constraint(validatedBy = PhoneNumberValidator.class)
 public @interface PhoneNumber {
 
 }
